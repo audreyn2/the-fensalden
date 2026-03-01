@@ -412,7 +412,7 @@ function Story() {
     <section id="story" style={{ background: C.cream, padding: "clamp(5rem, 12vw, 10rem) 0" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
-          <div className="md:col-span-7 md:col-start-6">
+          <div className="md:col-span-7 md:col-start-6" style={{ position: "relative", zIndex: 1 }}>
               <div className="flex flex-col gap-8">
                 <Reveal delay={0}>
                   <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.driftwood, marginBottom: 24 }}>Our Story</p>
@@ -951,7 +951,7 @@ export default function TheFensalden() {
       <style>{FONT_STYLES}</style>
       <Nav />
       <Hero />
-      <ScrollTreeZone side="left" flip={false} color={C.sand}>
+      <ScrollTreeZone side="left" flip={false} color="#D9CEBD">
         <Story />
       </ScrollTreeZone>
       <Divider image={VENUE_CEREMONY} text="The most memorable location for the most important day" />
