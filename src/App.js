@@ -162,7 +162,7 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
         height: isSticky ? (isMobile ? "70vh" : "95vh") : "100%",
         width: "auto",
         position: isSticky ? "sticky" : "static",
-        top: isSticky ? "-12vh" : undefined,
+        top: isSticky ? "0" : undefined,
         transform: flip ? "scaleX(-1)" : "none",
         pointerEvents: "none",
         zIndex: 0,
