@@ -760,9 +760,35 @@ function Gallery() {
 // ─── Details ───
 function Details() {
   const tiers = [
-    { name: "Intimate", guests: "Up to 30", price: "From $8,500", items: ["Full property access · 3 days / 2 nights", "Ceremony meadow & reception space", "All cottages & main house lodging", "Tables, chairs & basic décor"] },
-    { name: "Gathering", guests: "30–60", price: "From $14,000", items: ["Full property access · 4 days / 3 nights", "Everything in Intimate, plus:", "Extended outdoor event space", "On-site coordination support", "Rehearsal dinner setup"], featured: true },
-    { name: "Grand", guests: "60–120", price: "From $22,000", items: ["Full property access · 5 days / 4 nights", "Everything in Gathering, plus:", "Expanded catering staging area", "Additional parking & shuttle coordination", "Day-of venue manager"] },
+    {
+      name: "Gatherings",
+      subtitle: "Intimate stays & small events",
+      price: "Price Upon Request",
+      items: [
+        "Full property access",
+        "All cottages & main house lodging",
+        "Perfect for reunions, retreats & milestones",
+        "Book directly through Airbnb",
+      ],
+      link: "https://www.airbnb.com/rooms/1117748351451827756?source_impression_id=p3_1772323294_P3ANK3A4xfUzVU-p",
+      linkText: "Book on Airbnb",
+      external: true,
+    },
+    {
+      name: "Celebrations",
+      subtitle: "Weddings & large events",
+      price: "Price Upon Request",
+      items: [
+        "Full property access · multi-day weekend",
+        "Ceremony meadow & reception spaces",
+        "On-site coordination support",
+        "Customized to your vision",
+      ],
+      link: "#contact",
+      linkText: "Inquire Now",
+      external: false,
+      featured: true,
+    },
   ];
   return (
     <section id="details" style={{ background: C.deepSea, padding: "clamp(5rem, 10vw, 8.75rem) 0" }}>
@@ -771,27 +797,16 @@ function Details() {
           <p className="fb text-center" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist, marginBottom: 16 }}>Details & Pricing</p>
           <h2 className="fd text-center" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, lineHeight: 1.1, color: C.cream }}>Plan your celebration</h2>
         </Reveal>
-        <Reveal delay={0.1}>
-          <div className="flex justify-center gap-6 mt-10 flex-wrap">
-            {[{ l: "Peak Season", m: "Jun – Oct", n: "Book 12+ months ahead" }, { l: "Shoulder", m: "Apr – May, Nov", n: "Best availability" }, { l: "Winter", m: "Dec – Mar", n: "Reduced rates available" }].map((s, i) => (
-              <div key={i} className="text-center" style={{ minWidth: 140 }}>
-                <p className="fb" style={{ fontSize: rem(13), fontWeight: 500, color: C.cream, letterSpacing: "0.05em" }}>{s.l}</p>
-                <p className="fb" style={{ fontSize: rem(13), color: C.oceanMist }}>{s.m}</p>
-                <p className="fb" style={{ fontSize: rem(11), color: C.fog, opacity: 0.6, marginTop: 2 }}>{s.n}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16 max-w-4xl mx-auto">
           {tiers.map((t, i) => (
             <Reveal key={i} delay={i * 0.1} direction="up">
               <div style={{ background: t.featured ? `${C.cream}0D` : "transparent", border: `1px solid ${t.featured ? C.driftwood : "rgba(255,255,255,0.1)"}`, padding: "clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)", position: "relative", transition: "border-color 0.3s" }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = C.driftwood}
                 onMouseLeave={e => e.currentTarget.style.borderColor = t.featured ? C.driftwood : "rgba(255,255,255,0.1)"}>
-                {t.featured && <span className="fb" style={{ position: "absolute", top: -10, left: 24, background: C.driftwood, color: C.cream, fontSize: rem(10), letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 500, padding: "4px 12px" }}>Most Popular</span>}
-                <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist }}>{t.guests}</p>
+                {t.featured && <span className="fb" style={{ position: "absolute", top: -10, left: 24, background: C.driftwood, color: C.cream, fontSize: rem(10), letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 500, padding: "4px 12px" }}>Featured</span>}
+                <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist }}>{t.subtitle}</p>
                 <h3 className="fd mt-2" style={{ fontSize: rem(32), fontWeight: 400, color: C.cream }}>{t.name}</h3>
-                <p className="fd mt-3" style={{ fontSize: rem(24), fontWeight: 300, color: C.driftwood }}>{t.price}</p>
+                <p className="fd mt-3" style={{ fontSize: rem(20), fontWeight: 300, color: C.driftwood, fontStyle: "italic" }}>{t.price}</p>
                 <div className="mt-6 flex flex-col gap-3">
                   {t.items.map((item, j) => (
                     <p key={j} className="fb" style={{ fontSize: rem(14), color: "rgba(255,255,255,0.55)", lineHeight: 1.5, paddingLeft: 16, position: "relative" }}>
@@ -799,18 +814,13 @@ function Details() {
                     </p>
                   ))}
                 </div>
-                <a href="#contact" className="fb block text-center mt-8" style={{ fontSize: rem(12), letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, padding: "12px 0", border: `1px solid ${C.driftwood}`, color: C.cream, textDecoration: "none", transition: "all 0.3s" }}
+                <a href={t.link} {...(t.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="fb block text-center mt-8" style={{ fontSize: rem(12), letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, padding: "12px 0", border: `1px solid ${C.driftwood}`, color: C.cream, textDecoration: "none", transition: "all 0.3s" }}
                   onMouseEnter={e => e.target.style.background = C.driftwood}
-                  onMouseLeave={e => e.target.style.background = "transparent"}>Request Info</a>
+                  onMouseLeave={e => e.target.style.background = "transparent"}>{t.linkText}</a>
               </div>
             </Reveal>
           ))}
         </div>
-        <Reveal delay={0.2}>
-          <p className="fb text-center mt-10" style={{ fontSize: rem(13), color: C.oceanMist, opacity: 0.6, maxWidth: 500, margin: "40px auto 0" }}>
-            All packages are customizable. Pricing varies by season and group size. Contact us for a personalized quote.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
