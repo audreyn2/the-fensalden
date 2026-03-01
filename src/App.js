@@ -501,7 +501,7 @@ function Divider({ image, text }) {
   return (
     <div className="relative overflow-hidden" style={{ height: "clamp(300px, 50vh, 500px)" }}>
       <div ref={ref} style={{ position: "absolute", top: "-40%", bottom: "-40%", left: 0, right: 0, transform: `translateY(${offset}px)` }}>
-        <img src={image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={image} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
       </div>
       <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.3)" }} />
       {text && (
