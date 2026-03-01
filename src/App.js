@@ -145,13 +145,18 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
   // Smoothstep easing
   const ease = (t) => t * t * (3 - 2 * t);
 
-  // Main body draws from 0-0.85 of scroll progress (no acceleration boost)
-  const mainProgress = ease(Math.min(1, progress / 0.85));
-  // Details start later (at 30% scroll) and finish near the end
-  const detailBase = Math.max(0, (progress - 0.3) / 0.7);
+  // Fill appears early (0–50% progress) — light silhouette behind Hero
+  const fillProgress = ease(Math.min(1, progress / 0.5));
+  // Darker stroke outline begins at ~45% progress (when Hero scrolls away) and completes by 90%
+  const strokeProgress = ease(Math.max(0, Math.min(1, (progress - 0.45) / 0.45)));
+  // Details start at 50% and stagger from there
+  const detailBase = Math.max(0, (progress - 0.5) / 0.5);
 
-  // Fade out starting at 55% scroll progress
-  const fadeOut = progress > 0.55 ? Math.max(0, 1 - (progress - 0.55) / 0.2) : 1;
+  // Fade out starting at 85% scroll progress
+  const fadeOut = progress > 0.85 ? Math.max(0, 1 - (progress - 0.85) / 0.15) : 1;
+
+  // Darker outline color
+  const strokeColor = C.driftwood;
 
   return (
     <svg
@@ -171,38 +176,51 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
       }}
     >
       <g transform="translate(0,6260) scale(1,-1)">
-        {/* Main tree body - fill + stroke drawing */}
+        {/* Main tree body - light fill first, then darker outline stroke */}
+        <path
+          d={CYPRESS_MAIN}
+          fill={color}
+          fillOpacity={fillProgress * 0.25}
+          stroke="none"
+        />
         <path
           ref={mainRef}
           d={CYPRESS_MAIN}
-          fill={color}
-          fillOpacity={mainProgress * 0.2}
-          stroke={color}
+          fill="none"
+          stroke={strokeColor}
+          strokeOpacity={strokeProgress * 0.6}
           strokeWidth={mainLen ? 12 : 0}
           strokeDasharray={mainLen || undefined}
-          strokeDashoffset={mainLen ? mainLen * (1 - mainProgress) : undefined}
+          strokeDashoffset={mainLen ? mainLen * (1 - strokeProgress) : undefined}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        {/* Detail paths - staggered stroke drawing */}
+        {/* Detail paths - light fill early, darker outline stroke later */}
         {CYPRESS_DETAILS.map((d, i) => {
           const len = detailLens[i] || 0;
           const stagger = i * 0.06;
           const localP = ease(Math.max(0, Math.min(1, (detailBase - stagger) / 0.6)));
           return (
-            <path
-              key={i}
-              ref={el => detailRefs.current[i] = el}
-              d={d}
-              fill={color}
-              fillOpacity={localP * 0.3}
-              stroke={color}
-              strokeWidth={len ? 8 : 0}
-              strokeDasharray={len || undefined}
-              strokeDashoffset={len ? len * (1 - localP) : undefined}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <g key={i}>
+              <path
+                d={d}
+                fill={color}
+                fillOpacity={fillProgress * 0.2}
+                stroke="none"
+              />
+              <path
+                ref={el => detailRefs.current[i] = el}
+                d={d}
+                fill="none"
+                stroke={strokeColor}
+                strokeOpacity={localP * 0.5}
+                strokeWidth={len ? 8 : 0}
+                strokeDasharray={len || undefined}
+                strokeDashoffset={len ? len * (1 - localP) : undefined}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </g>
           );
         })}
       </g>
