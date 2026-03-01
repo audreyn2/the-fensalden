@@ -409,7 +409,7 @@ function Hero() {
 function Story() {
   const [imgRef, imgOffset] = useParallax(0.15);
   return (
-    <section id="story" style={{ background: C.cream, padding: "clamp(5rem, 12vw, 10rem) 0" }}>
+    <section id="story" style={{ background: C.cream, padding: "clamp(2.5rem, 6vw, 5rem) 0" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
           <div className="md:col-span-7 md:col-start-6" style={{ position: "relative", zIndex: 1 }}>
