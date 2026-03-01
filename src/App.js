@@ -226,7 +226,7 @@ function ScrollTreeZone({ children, side = "right", flip = false, color = C.sage
         height: 0,
         overflow: "visible",
         pointerEvents: "none",
-        zIndex: 2,
+        zIndex: 0,
       }}>
         <div style={{
           width: "60vw",
@@ -951,7 +951,7 @@ export default function TheFensalden() {
       <style>{FONT_STYLES}</style>
       <Nav />
       <Hero />
-      <ScrollTreeZone side="left" flip={false} color="#B5CBB5">
+      <ScrollTreeZone side="left" flip={false} color={C.cream}>
         <Story />
       </ScrollTreeZone>
       <Divider image={VENUE_CEREMONY} text="The most memorable location for the most important day" />
