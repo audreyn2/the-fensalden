@@ -425,7 +425,6 @@ function Hero() {
 
 // ─── Story (uses VENUE_GROVE - cypress grove with adirondack chairs + VENUE_EVENING) ───
 function Story() {
-  const [imgRef, imgOffset] = useParallax(0.15);
   return (
     <section id="story" style={{ background: C.cream, padding: "clamp(2.5rem, 6vw, 5rem) 0" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -452,15 +451,6 @@ function Story() {
                 </Reveal>
               </div>
           </div>
-        </div>
-
-        {/* Layered Photo Collage using real venue images */}
-        <div className="relative mt-16 md:mt-24">
-          <Reveal className="relative z-10 ml-auto" direction="right" style={{ width: "clamp(300px, 60%, 700px)" }}>
-            <div ref={imgRef}>
-              <LazyImg src={VENUE_GROVE} alt="Adirondack chairs at The Fensalden" style={{ aspectRatio: "3/2", transform: `translateY(${imgOffset}px)` }} />
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
