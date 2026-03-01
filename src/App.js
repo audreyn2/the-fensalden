@@ -216,7 +216,7 @@ function ScrollTreeZone({ children, side = "right", flip = false, color = C.sage
   const progress = useScrollProgress(containerRef);
 
   return (
-    <div ref={containerRef} style={{ overflowX: "clip", marginTop: "-30vh", paddingTop: "30vh" }}>
+    <div ref={containerRef} style={{ overflowX: "clip", marginTop: "-60vh", paddingTop: "60vh" }}>
       {/* Float + sticky: floats to the side, sticks while scrolling through zone */}
       <div style={{
         float: side,
