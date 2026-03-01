@@ -145,13 +145,13 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
   // Smoothstep easing
   const ease = (t) => t * t * (3 - 2 * t);
 
-  // Main body draws from 0-0.5 of scroll progress (draws faster/earlier)
-  const mainProgress = ease(Math.min(1, progress / 0.5));
-  // Details start at 15% scroll and finish by 65%
-  const detailBase = Math.max(0, (progress - 0.15) / 0.5);
+  // Main body draws from 0-0.85 of scroll progress (no acceleration boost)
+  const mainProgress = ease(Math.min(1, progress / 0.85));
+  // Details start later (at 30% scroll) and finish near the end
+  const detailBase = Math.max(0, (progress - 0.3) / 0.7);
 
-  // Fade out starting at 85% scroll progress (stays visible through entire Story)
-  const fadeOut = progress > 0.85 ? Math.max(0, 1 - (progress - 0.85) / 0.15) : 1;
+  // Fade out starting at 55% scroll progress
+  const fadeOut = progress > 0.55 ? Math.max(0, 1 - (progress - 0.55) / 0.2) : 1;
 
   return (
     <svg
