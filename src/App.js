@@ -779,7 +779,7 @@ function Details() {
       subtitle: "Weddings & large events",
       price: "Price Upon Request",
       items: [
-        "Full property access · multi-day weekend",
+        "Full property access for 3 days",
         "Ceremony meadow & reception spaces",
         "On-site coordination support",
         "Up to 100 guests",
