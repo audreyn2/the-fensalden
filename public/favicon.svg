@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Cream circle fill -->
+  <circle cx="256" cy="256" r="250" fill="#F5F0E8"/>
+  <!-- Outer ring -->
+  <circle cx="256" cy="256" r="245" fill="none" stroke="#A89279" stroke-width="3"/>
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#A89279" stroke-width="1.5"/>
+  <!-- Large F -->
+  <text x="256" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="300" font-weight="400" fill="#8C7E6A">F</text>
+  <!-- Horizontal rule -->
+  <line x1="140" y1="370" x2="372" y2="370" stroke="#A89279" stroke-width="2"/>
+  <!-- ALBION. CALIFORNIA text -->
+  <text x="256" y="415" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="400" letter-spacing="4" fill="#8C7E6A">ALBION. CALIFORNIA</text>
+</svg>
