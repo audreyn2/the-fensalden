@@ -797,16 +797,16 @@ function Details() {
           <p className="fb text-center" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist, marginBottom: 16 }}>Details & Pricing</p>
           <h2 className="fd text-center" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, lineHeight: 1.1, color: C.cream }}>Plan your celebration</h2>
         </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16 max-w-4xl mx-auto" style={{ alignItems: "stretch" }}>
           {tiers.map((t, i) => (
-            <Reveal key={i} delay={i * 0.1} direction="up">
-              <div style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.1)", padding: "clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)", position: "relative", transition: "border-color 0.3s" }}
+            <Reveal key={i} delay={i * 0.1} direction="up" style={{ height: "100%" }}>
+              <div style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.1)", padding: "clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)", position: "relative", transition: "border-color 0.3s", display: "flex", flexDirection: "column", height: "100%" }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = C.driftwood}
                 onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"}>
                 <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist }}>{t.subtitle}</p>
                 <h3 className="fd mt-2" style={{ fontSize: rem(32), fontWeight: 400, color: C.cream }}>{t.name}</h3>
                 <p className="fd mt-3" style={{ fontSize: rem(20), fontWeight: 300, color: C.driftwood, fontStyle: "italic" }}>{t.price}</p>
-                <div className="mt-6 flex flex-col gap-3">
+                <div className="mt-6 flex flex-col gap-3" style={{ flex: 1 }}>
                   {t.items.map((item, j) => (
                     <p key={j} className="fb" style={{ fontSize: rem(14), color: "rgba(255,255,255,0.55)", lineHeight: 1.5, paddingLeft: 16, position: "relative" }}>
                       <span style={{ position: "absolute", left: 0, color: C.driftwood }}>·</span>{item}
