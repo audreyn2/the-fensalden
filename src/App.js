@@ -782,12 +782,12 @@ function Details() {
         "Full property access · multi-day weekend",
         "Ceremony meadow & reception spaces",
         "On-site coordination support",
+        "Up to 100 guests",
         "Customized to your vision",
       ],
       link: "#contact",
       linkText: "Inquire Now",
       external: false,
-      featured: true,
     },
   ];
   return (
@@ -800,10 +800,9 @@ function Details() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16 max-w-4xl mx-auto">
           {tiers.map((t, i) => (
             <Reveal key={i} delay={i * 0.1} direction="up">
-              <div style={{ background: t.featured ? `${C.cream}0D` : "transparent", border: `1px solid ${t.featured ? C.driftwood : "rgba(255,255,255,0.1)"}`, padding: "clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)", position: "relative", transition: "border-color 0.3s" }}
+              <div style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.1)", padding: "clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)", position: "relative", transition: "border-color 0.3s" }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = C.driftwood}
-                onMouseLeave={e => e.currentTarget.style.borderColor = t.featured ? C.driftwood : "rgba(255,255,255,0.1)"}>
-                {t.featured && <span className="fb" style={{ position: "absolute", top: -10, left: 24, background: C.driftwood, color: C.cream, fontSize: rem(10), letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 500, padding: "4px 12px" }}>Featured</span>}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"}>
                 <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.oceanMist }}>{t.subtitle}</p>
                 <h3 className="fd mt-2" style={{ fontSize: rem(32), fontWeight: 400, color: C.cream }}>{t.name}</h3>
                 <p className="fd mt-3" style={{ fontSize: rem(20), fontWeight: 300, color: C.driftwood, fontStyle: "italic" }}>{t.price}</p>
