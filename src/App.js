@@ -410,78 +410,29 @@ function Story() {
   const [imgRef, imgOffset] = useParallax(0.15);
   return (
     <section id="story" style={{ background: C.cream, padding: "clamp(5rem, 12vw, 10rem) 0" }}>
-      {/* Hidden SVG for torn-edge clip path */}
-      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
-        <defs>
-          <clipPath id="story-torn-edges" clipPathUnits="objectBoundingBox">
-            <path d={[
-              "M 0.02 0.015",
-              "C 0.04 0.005, 0.08 0.02, 0.12 0.01",
-              "C 0.18 0.0, 0.22 0.018, 0.28 0.008",
-              "C 0.34 0.0, 0.38 0.015, 0.44 0.005",
-              "C 0.50 0.0, 0.55 0.012, 0.60 0.006",
-              "C 0.66 0.0, 0.72 0.02, 0.78 0.008",
-              "C 0.84 0.0, 0.88 0.014, 0.93 0.005",
-              "C 0.96 0.0, 0.98 0.01, 0.99 0.018",
-              "C 0.995 0.06, 0.985 0.12, 0.993 0.18",
-              "C 1.0 0.24, 0.988 0.32, 0.995 0.38",
-              "C 1.0 0.44, 0.987 0.52, 0.994 0.58",
-              "C 1.0 0.64, 0.986 0.72, 0.993 0.78",
-              "C 1.0 0.84, 0.988 0.90, 0.994 0.95",
-              "C 0.99 0.97, 0.985 0.99, 0.98 0.99",
-              "C 0.94 1.0, 0.88 0.985, 0.82 0.995",
-              "C 0.76 1.0, 0.70 0.984, 0.64 0.993",
-              "C 0.58 1.0, 0.52 0.986, 0.46 0.994",
-              "C 0.40 1.0, 0.34 0.983, 0.28 0.992",
-              "C 0.22 1.0, 0.16 0.987, 0.10 0.995",
-              "C 0.06 1.0, 0.03 0.988, 0.015 0.985",
-              "C 0.005 0.94, 0.015 0.88, 0.007 0.82",
-              "C 0.0 0.76, 0.012 0.70, 0.005 0.64",
-              "C 0.0 0.58, 0.014 0.52, 0.006 0.46",
-              "C 0.0 0.40, 0.012 0.34, 0.004 0.28",
-              "C 0.0 0.22, 0.015 0.16, 0.007 0.10",
-              "C 0.0 0.06, 0.01 0.03, 0.02 0.015 Z",
-            ].join(" ")} />
-          </clipPath>
-        </defs>
-      </svg>
-
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start">
           <div className="md:col-span-7 md:col-start-6">
-            {/* Green background wrapper with torn edges */}
-            <div style={{ position: "relative" }}>
-              {/* Tattered green background layer */}
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                background: `${C.deepSea}99`,
-                clipPath: "url(#story-torn-edges)",
-                zIndex: 0,
-              }} />
-              {/* Text content */}
-              <div className="flex flex-col gap-8"
-                   style={{ position: "relative", zIndex: 1, padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.75rem, 4vw, 3rem)" }}>
+              <div className="flex flex-col gap-8">
                 <Reveal delay={0}>
-                  <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.sand, marginBottom: 24 }}>Our Story</p>
-                  <h2 className="fd" style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)", fontWeight: 300, lineHeight: 1.05, color: "#F5F1E6", letterSpacing: "-0.01em" }}>
+                  <p className="fb" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.driftwood, marginBottom: 24 }}>Our Story</p>
+                  <h2 className="fd" style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)", fontWeight: 300, lineHeight: 1.05, color: C.ink, letterSpacing: "-0.01em" }}>
                     A place shaped<br />by the sea
                   </h2>
                 </Reveal>
                 <Reveal delay={0.15}>
-                  <p className="fb" style={{ fontSize: rem(16), lineHeight: 1.75, color: C.sand, maxWidth: 480 }}>
+                  <p className="fb" style={{ fontSize: rem(16), lineHeight: 1.75, color: C.ink, opacity: 0.75, maxWidth: 480 }}>
                     Perched on the rugged cliffs of the Northern California coast, The Fensalden is a
                     historic retreat just minutes from Mendocino. Our expansive property features a main
                     house and three charming cottages wrapped in wildflower meadows and ancient cypress groves.
                   </p>
-                  <p className="fb" style={{ fontSize: rem(16), lineHeight: 1.75, color: C.sand, maxWidth: 480, marginTop: 20 }}>
+                  <p className="fb" style={{ fontSize: rem(16), lineHeight: 1.75, color: C.ink, opacity: 0.75, maxWidth: 480, marginTop: 20 }}>
                     Every detail here has been considered — from the spacious decks overlooking the Pacific
                     to the sun-drenched lawns scattered with Adirondack chairs. This is a place for gathering,
                     for celebrating, for letting the ocean air carry the day.
                   </p>
                 </Reveal>
               </div>
-            </div>
           </div>
         </div>
 
@@ -1000,7 +951,7 @@ export default function TheFensalden() {
       <style>{FONT_STYLES}</style>
       <Nav />
       <Hero />
-      <ScrollTreeZone side="left" flip={false}>
+      <ScrollTreeZone side="left" flip={false} color="#B5CBB5">
         <Story />
       </ScrollTreeZone>
       <Divider image={VENUE_CEREMONY} text="The most memorable location for the most important day" />
