@@ -147,10 +147,10 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
 
   // Fill appears early (0–50% progress) — light silhouette behind Hero
   const fillProgress = ease(Math.min(1, progress / 0.5));
-  // Darker stroke outline begins at ~30% progress and completes by 75%
-  const strokeProgress = ease(Math.max(0, Math.min(1, (progress - 0.30) / 0.45)));
-  // Details start at 35% and stagger from there
-  const detailBase = Math.max(0, (progress - 0.35) / 0.5);
+  // Darker stroke outline begins at ~40% progress and completes by 85%
+  const strokeProgress = ease(Math.max(0, Math.min(1, (progress - 0.40) / 0.45)));
+  // Details start at 45% and stagger from there
+  const detailBase = Math.max(0, (progress - 0.45) / 0.5);
 
   // Fade out starting at 85% scroll progress
   const fadeOut = progress > 0.85 ? Math.max(0, 1 - (progress - 0.85) / 0.15) : 1;
