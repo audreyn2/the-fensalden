@@ -152,8 +152,8 @@ function ScrollCypressTree({ progress, flip = false, side = "right", color = C.s
   // Details start at 45% and stagger from there
   const detailBase = Math.max(0, (progress - 0.45) / 0.5);
 
-  // Fade out starting at 85% scroll progress
-  const fadeOut = progress > 0.85 ? Math.max(0, 1 - (progress - 0.85) / 0.15) : 1;
+  // Fade out starting at 65% scroll progress
+  const fadeOut = progress > 0.65 ? Math.max(0, 1 - (progress - 0.65) / 0.15) : 1;
 
   // Darker outline color
   const strokeColor = C.driftwood;
