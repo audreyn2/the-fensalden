@@ -510,7 +510,7 @@ function Spaces() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <Reveal>
           <p className="fb text-center" style={{ fontSize: rem(11), letterSpacing: "0.2em", textTransform: "uppercase", color: C.driftwood, marginBottom: 16 }}>The Spaces</p>
-          <h2 className="fd text-center" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, lineHeight: 1.1, color: C.ink }}>Built for celebration</h2>
+          <h2 className="fd text-center" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, lineHeight: 1.1, color: C.ink }}>Designed to bring people together</h2>
         </Reveal>
         <div className="mt-16 md:mt-24 flex flex-col gap-24 md:gap-32">
           {spaces.map((s, i) => (
