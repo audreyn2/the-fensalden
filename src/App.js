@@ -951,7 +951,7 @@ export default function TheFensalden() {
       <style>{FONT_STYLES}</style>
       <Nav />
       <Hero />
-      <ScrollTreeZone side="left" flip={false} color="#D9CEBD">
+      <ScrollTreeZone side="left" flip={false} color="#E0D6C6">
         <Story />
       </ScrollTreeZone>
       <Divider image={VENUE_CEREMONY} text="The most memorable location for the most important day" />
